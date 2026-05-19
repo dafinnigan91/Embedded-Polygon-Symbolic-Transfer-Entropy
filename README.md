@@ -196,7 +196,7 @@ Each time series is decomposed into overlapping triplets of consecutive samples.
 Each feature dimension is discretised using quantile-based global bin edges learned from training data only. The three bin indices are combined via mixed-radix encoding into a single integer symbol per timestep — producing a symbolic sequence suitable for transition counting and TE estimation.
 
 ### Transfer Entropy Estimation
-Symbolic TE is estimated using a joint-count estimator with optional Miller-Madow bias correction. TE is computed over a set of physiologically motivated lag values and the maximum is retained as the trial-level target.
+Symbolic TE is estimated using a joint-count estimator with optional Miller-Madow bias correction. TE is computed over a set of physiologically motivated lag values, and the maximum is retained as the trial-level target.
 
 ### Neural Architecture
 A GRU processes bags of symbolic windows (separate embeddings for source and target channels). Attention-based MIL pooling aggregates window-level representations into a trial-level scalar TE prediction. Training uses MSE loss with Adam optimiser and early stopping on validation loss.
