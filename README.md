@@ -10,7 +10,7 @@ EPSTE — Embedded Polygon Symbolic Transfer Entropy
 
 ## Overview
 
-Inferring *directed* causal relationships between brain regions from MEG and EEG recordings is hard. Transfer Entropy (TE) provides a principled, model-free measure of directed information flow — but its practical estimation from finite, noisy neural data is notoriously unstable as embedding dimensionality grows.
+Inferring *directed* causal relationships between brain regions from MEG and EEG recordings is hard. Transfer Entropy (TE) provides a principled, model-free measure of directed information flow — but its practical estimation from finite, noisy neural data is notoriously unstable as dimensionality grows.
 
 **EPSTE** introduces a new representational strategy: rather than estimating TE directly from raw signal amplitudes, it first decomposes each time series into a sequence of *geometric symbolic tokens* derived from local triplets of samples. Each token encodes three complementary aspects of local waveform morphology:
 
