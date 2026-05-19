@@ -29,12 +29,15 @@ The core claim: *representational geometry precedes learnability*. Structured sy
 
 EPSTE was evaluated against a standard symbolic TE baseline using **identical architectures, optimisation procedures, and supervision** — isolating the contribution of representational structure alone.
 
-| Metric                            | EPSTE                     | Baseline |
-|
-| Pair-level absolute error         | **Lower**                 | Higher |
-| Learning curve convergence        | **Faster, lower floor**   | Slow plateau |
+| Metric                            | EPSTE                     | Baseline               |
+
+| Pair-level absolute error         | **Lower**                 | Higher                 |
+
+| Learning curve convergence        | **Faster, lower floor**   | Slow plateau           |
+
 | Heatmap structural correspondence | **Sharp, differentiated** | Compressed toward mean |
-| Wilcoxon signed-rank (paired)     | **p < 10⁻¹⁴**             | — |
+
+| Wilcoxon signed-rank (paired)     | **p < 10⁻¹⁴**             | —                      |
 
 The null hypothesis — *"polygon-based symbolic encoding does not increase learnability more effectively than classical amplitude representations"* — was rejected at p < 10⁻¹⁴.
 
