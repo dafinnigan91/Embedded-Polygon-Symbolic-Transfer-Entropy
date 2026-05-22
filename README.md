@@ -49,42 +49,37 @@ Performance gains were robust across mean, median, and interquartile ranges, ind
 
 ```
 Raw MEG time series (X, Y)
-        │
-        ▼
-┌─────────────────────────────┐
-│  Geometric Decomposition     │
-│  Local triplets → (area,     │
-│  angle, amplitude) per step  │
-└─────────────┬───────────────┘
+   
+1.
+│  Geometric Decomposition     
+│  Local triplets → (area,     
+│  angle, amplitude)
+              
+              
+2.
+│  Quantile Binning            
+│  3 continuous features →     
+│  1 integer symbol per step   
+│  (global bins from train set)
+              
+              
+3.
+│  Symbolic TE Label Gen       
+│  Joint-count estimator       
+│  Max over physiological lags 
+│  Miller-Madow bias 
               │
-              ▼
-┌─────────────────────────────┐
-│  Quantile Binning            │
-│  3 continuous features →     │
-│  1 integer symbol per step   │
-│  (global bins from train set)│
-└─────────────┬───────────────┘
-              │
-              ▼
-┌─────────────────────────────┐
-│  Symbolic TE Label Gen       │
-│  Joint-count estimator       │
-│  Max over physiological lags │
-│  Miller-Madow bias correction│
-└─────────────┬───────────────┘
-              │
-              ▼
-┌─────────────────────────────┐
-│  GRU + Attention MIL         │
-│  Separate embeddings X, Y    │
-│  Window-level GRU encoding   │
-│  Attention pooling → scalar  │
-│  MSE regression on TE target │
-└─────────────┬───────────────┘
+           
+4.
+│  GRU + Attention MIL         
+│  Separate embeddings X, Y    
+│  Window-level GRU encoding   
+│  Attention pooling → scalar  
+│  MSE regression on TE target 
               │
               ▼
         Predicted TE_{X→Y}
-```
+
 
 ---
 
