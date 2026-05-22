@@ -8,6 +8,31 @@ EPSTE — Embedded Polygon Symbolic Transfer Entropy
 
 ---
 
+Repository Structure
+
+```
+EPSTE/
+├── README.md
+├── requirements.txt
+├── Dissertation_Py_Notebook.ipynb   # Full pipeline notebook
+├── epste_core.py                    # Core functions (extracted from notebook)
+│   ├── triangle_feats_arrays()      # Geometric decomposition
+│   ├── cats_from_arrays()           # Symbolic tokenisation
+│   ├── build_bins_from_pairs_subsample()  # Global bin construction
+│   ├── metric_series_loop_with_bins()     # End-to-end EPSTE for a pair
+│   └── surrogate_one_dir()          # Phase-randomisation significance test
+├── epste_model.py                   # GRU + attention MIL architecture
+│   ├── EPSTEDataset                 # PyTorch Dataset for bag-of-windows
+│   ├── AttentionMIL                 # Attention pooling module
+│   └── EPSTE_GRU                   # Full model
+├── epste_eval.py                    # Evaluation, metrics, plotting
+│   ├── empirical_report()           # Full evaluation pipeline
+│   ├── compare_pair_errors()        # Wilcoxon paired significance
+│   └── heatmap_from_pairdf()        # Connectivity heatmaps
+└── synthetic_demo.py                # Runnable demo without MEG data
+```
+
+---
 ## Overview
 
 Inferring *directed* causal relationships between brain regions from MEG and EEG recordings is hard. Transfer Entropy (TE) provides a principled, model-free measure of directed information flow — but its practical estimation from finite, noisy neural data is notoriously unstable as dimensionality grows.
@@ -156,31 +181,6 @@ openpyxl
 
 ---
 
-## Repository Structure
-
-```
-EPSTE/
-├── README.md
-├── requirements.txt
-├── Dissertation_Py_Notebook.ipynb   # Full pipeline notebook
-├── epste_core.py                    # Core functions (extracted from notebook)
-│   ├── triangle_feats_arrays()      # Geometric decomposition
-│   ├── cats_from_arrays()           # Symbolic tokenisation
-│   ├── build_bins_from_pairs_subsample()  # Global bin construction
-│   ├── metric_series_loop_with_bins()     # End-to-end EPSTE for a pair
-│   └── surrogate_one_dir()          # Phase-randomisation significance test
-├── epste_model.py                   # GRU + attention MIL architecture
-│   ├── EPSTEDataset                 # PyTorch Dataset for bag-of-windows
-│   ├── AttentionMIL                 # Attention pooling module
-│   └── EPSTE_GRU                   # Full model
-├── epste_eval.py                    # Evaluation, metrics, plotting
-│   ├── empirical_report()           # Full evaluation pipeline
-│   ├── compare_pair_errors()        # Wilcoxon paired significance
-│   └── heatmap_from_pairdf()        # Connectivity heatmaps
-└── synthetic_demo.py                # Runnable demo without MEG data
-```
-
----
 
 ## Methods Summary
 
